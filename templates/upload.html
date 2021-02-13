@@ -1,0 +1,38 @@
+<!doctype html>
+<title>Home</title>
+<table style="width:100%">
+  <tr>
+    <td>
+		<h2>Select a file to upload</h2>
+			<p>
+				{% with messages = get_flashed_messages() %}
+				  {% if messages %}
+					<ul>
+					{% for message in messages %}
+					  <li>{{ message }}</li>
+					{% endfor %}
+					</ul>
+				  {% endif %}
+				{% endwith %}
+			</p>
+			{% if filename %}
+				<div>
+					<img src="{{ url_for('display_image', filename=filename) }}">
+				</div>
+			{% endif %}
+			<form method="post" action="/image/" enctype="multipart/form-data">
+				<dl>
+					<p>
+						<input type="file" name="file" autocomplete="off" required>
+					</p>
+				</dl>
+				<p>
+					<input type="submit" value="Add glass to face">
+				</p>
+			</form>
+	</td>
+    <td>
+		<img id="bg" class="center" src="{{ url_for('small_frame') }}">
+	</td>
+  </tr>
+</table>

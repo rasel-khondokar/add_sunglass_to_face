@@ -1,0 +1,5 @@
+py -m venv venv
+venv\Scripts\activate
+pip install flask
+pip install opencv-contrib-python
+python app.py
